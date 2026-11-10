@@ -1,0 +1,534 @@
+{
+ "schema_version": 1,
+ "created_at": "2026-11-10T15:01:41+00:00",
+ "updated_at": "2026-11-10T15:39:23+00:00",
+ "policy": "facts are copied from the log files by a deterministic parser; computed values and summary are arithmetic over the facts, with pass/fail decided by outcome_rules; ai is model commentary and is never written into facts or computed.",
+ "outcome_rules": {
+  "pass": [
+   "PASS",
+   "PASSED",
+   "MATCH",
+   "EXACT",
+   "OK",
+   "CLOSE"
+  ],
+  "fail": [
+   "MISMATCH",
+   "FAIL",
+   "FAILED",
+   "ERROR",
+   "TIMEOUT"
+  ]
+ },
+ "summary": {
+  "runs_total": 1,
+  "runs_completed": 1,
+  "cases_selected": 2,
+  "cases_completed": 2,
+  "cases_executed": 2,
+  "passed": 1,
+  "failed": 1,
+  "other": 0,
+  "pass_rate_pct": 50.0,
+  "latest": {
+   "stamp": "20261110_120000",
+   "outcome": "completed",
+   "cases_selected": 2,
+   "cases_completed": 2,
+   "cases_executed": 2,
+   "passed": 1,
+   "failed": 1,
+   "other": 0,
+   "pass_rate_pct": 50.0
+  }
+ },
+ "runs": [
+  {
+   "stamp": "20261110_120000",
+   "source_present": true,
+   "facts": {
+    "execution": {
+     "stamp": "20261110_120000",
+     "outcome": "completed",
+     "reason": "",
+     "started": "2026-11-10T12:00:00",
+     "finished": "2026-11-10T12:00:18",
+     "excel": "SYNTHETIC_SAMPLE_ONLY.xlsx",
+     "sheet": "VDC - Error",
+     "selected": 2,
+     "completed": 2,
+     "headless": true,
+     "dlt_capture": true,
+     "s3_bucket": "",
+     "argv": [
+      "--sheet",
+      "VDC - Error",
+      "--limit",
+      "2",
+      "--headless",
+      "--no-s3"
+     ]
+    },
+    "baseline": {
+     "VCB - Body": {
+      "funcs": [
+       "0",
+       "0",
+       "0",
+       "0",
+       "0",
+       "0",
+       "0"
+      ],
+      "vrres_select": "0",
+      "vrres_number": null,
+      "err_id": "0"
+     }
+    },
+    "cases": [
+     {
+      "case_id": "20261110_120000/VDC-Error_0003_Open_passenger_window",
+      "log_file": "run_20261110_120000_full/logs/VDC-Error_0003_Open_passenger_window.log",
+      "sheet": "VDC - Error",
+      "excel_row": 3,
+      "category": "VCB - Body",
+      "utterance": "Open the passenger window",
+      "stimulus": {
+       "availability": "40 00 00 00 00 00 00",
+       "applied": "FUNC=40 0 0 0 0 0 0 | VRRES=010b operation unavailable notification | ErrID=2",
+       "read_back": "FUNC=40 0 0 0 0 0 0 | VRRES=010b operation unavailable notification | ErrID=2"
+      },
+      "assertion": {
+       "expected": "This function is not available",
+       "actual": "That function is not available",
+       "verdict": "CLOSE",
+       "similarity_pct": 91.3,
+       "latency_ms": 1820
+      },
+      "flags": [],
+      "telemetry_errors": [],
+      "timeline": {
+       "declared_events": 5,
+       "events": [
+        {
+         "time": "12:00:02.100",
+         "offset_s": 0.0,
+         "kind": "STEP",
+         "name": "AcquireSoundRightsStep",
+         "details": [
+          "Gets an arbitration token"
+         ]
+        },
+        {
+         "time": "12:00:02.500",
+         "offset_s": 0.4,
+         "kind": "PLAN",
+         "name": "ResolverPlan",
+         "details": [
+          "Resolves the utterance to a VDC command.",
+          "intent=Settings  subintent=settings.vdc.body",
+          "heard=\"Open the passenger window\""
+         ]
+        },
+        {
+         "time": "12:00:02.700",
+         "offset_s": 0.6,
+         "kind": "STEP",
+         "name": "FindVdcCommandStep",
+         "details": [
+          "Searches for a matching VDC command."
+         ]
+        },
+        {
+         "time": "12:00:03.920",
+         "offset_s": 1.82,
+         "kind": "STEP",
+         "name": "TtsPlaySyncStep",
+         "details": [
+          "text=\"That function is not available\""
+         ]
+        },
+        {
+         "time": "12:00:04.100",
+         "offset_s": 2.0,
+         "kind": "END",
+         "name": "End",
+         "details": []
+        }
+       ]
+      },
+      "other_sections": {},
+      "raw_log": "==============================================================================\nVDC - Error  |  excel row 3  |  VCB - Body\n==============================================================================\nutterance    : Open the passenger window\n\n--- stimulus sent to VUI ---\navailability : 40 00 00 00 00 00 00\napplied      : FUNC=40 0 0 0 0 0 0 | VRRES=010b operation unavailable notification | ErrID=2\nread-back    : FUNC=40 0 0 0 0 0 0 | VRRES=010b operation unavailable notification | ErrID=2\n\n--- assertion ---\nexpected     : This function is not available\nactual       : That function is not available\nverdict      : CLOSE  (similarity 91.3%)\nlatency      : 1820 ms\n\n--- telemetry timeline (5 events) ---\n12:00:02.100 + 0.000s  STEP  AcquireSoundRightsStep\n                       Gets an arbitration token\n12:00:02.500 + 0.400s  PLAN  ResolverPlan\n                       Resolves the utterance to a VDC command.\n                       intent=Settings  subintent=settings.vdc.body\n                       heard=\"Open the passenger window\"\n12:00:02.700 + 0.600s  STEP  FindVdcCommandStep\n                       Searches for a matching VDC command.\n12:00:03.920 + 1.820s  STEP  TtsPlaySyncStep\n                       text=\"That function is not available\"\n12:00:04.100 + 2.000s  END   End",
+      "export": {
+       "file": "run_20261110_120000_full/logs/VDC-Error_0003_Open_passenger_window.export.log",
+       "total": 2,
+       "truncated": false,
+       "events": [
+        {
+         "id": "sample-event-0001",
+         "received_at": 1794312002100,
+         "session_id": "sample-session-0001",
+         "type": "Step",
+         "name": "AcquireSoundRightsStep",
+         "description": "Gets an arbitration token",
+         "text": null
+        },
+        {
+         "id": "sample-event-0002",
+         "received_at": 1794312003920,
+         "session_id": "sample-session-0001",
+         "type": "Step",
+         "name": "TtsPlaySyncStep",
+         "description": null,
+         "text": "That function is not available"
+        }
+       ]
+      },
+      "dlt": {
+       "file": "run_20261110_120000_batch_001/dlt/case_003.json",
+       "total": 2,
+       "truncated": false,
+       "by_level": {
+        "Informational": 2
+       },
+       "messages": [
+        {
+         "index": 12001,
+         "app_id": "SYS",
+         "ctx_id": "JOUR",
+         "level": "Informational",
+         "text": "Received text input in resolver task: Open the passenger window",
+         "payload": "2026/11/10 12:00:02.500:sample[1001]::Informational::{\"timestamp\":\"2026-11-10T12:00:02.500Z\",\"level\":\"INFO\",\"fields\":{\"message\":\"Received text input in resolver task: Open the passenger window\"},\"target\":\"plan_core::resolver\"}"
+        },
+        {
+         "index": 12002,
+         "app_id": "SYS",
+         "ctx_id": "JOUR",
+         "level": "Informational",
+         "text": "VDC command unavailable; preparing voice response",
+         "payload": "2026/11/10 12:00:03.100:sample[1001]::Informational::{\"timestamp\":\"2026-11-10T12:00:03.100Z\",\"level\":\"INFO\",\"fields\":{\"message\":\"VDC command unavailable; preparing voice response\"},\"target\":\"plan_core::resolver\"}"
+        }
+       ]
+      },
+      "key": "VDC - Error | row 3 | Open the passenger window"
+     },
+     {
+      "case_id": "20261110_120000/VDC-Error_0004_Close_rear_window",
+      "log_file": "run_20261110_120000_full/logs/VDC-Error_0004_Close_rear_window.log",
+      "sheet": "VDC - Error",
+      "excel_row": 4,
+      "category": "VCB - Body",
+      "utterance": "Close the rear window",
+      "stimulus": {
+       "availability": "80 00 00 00 00 00 00",
+       "applied": "FUNC=80 0 0 0 0 0 0 | VRRES=010b operation unavailable notification | ErrID=2",
+       "read_back": "FUNC=80 0 0 0 0 00 0 | VRRES=010b operation unavailable notification | ErrID=2"
+      },
+      "assertion": {
+       "expected": "The rear window is closed",
+       "actual": "The rear window is open",
+       "verdict": "MISMATCH",
+       "similarity_pct": 82.4,
+       "latency_ms": 2060
+      },
+      "flags": [
+       {
+        "field": "read_back",
+        "note": "MISMATCH, bench did not keep the values"
+       },
+       {
+        "field": "verdict",
+        "note": "conflicting terms: ['closed'] vs ['open']"
+       }
+      ],
+      "telemetry_errors": [
+       "Step execution failed: Interpret(\"Unavailable\")"
+      ],
+      "timeline": {
+       "declared_events": 5,
+       "events": [
+        {
+         "time": "12:00:10.000",
+         "offset_s": 0.0,
+         "kind": "STEP",
+         "name": "AcquireSoundRightsStep",
+         "details": [
+          "Gets an arbitration token"
+         ]
+        },
+        {
+         "time": "12:00:10.420",
+         "offset_s": 0.42,
+         "kind": "PLAN",
+         "name": "ResolverPlan",
+         "details": [
+          "Resolves the utterance to a VDC command.",
+          "intent=Settings  subintent=settings.vdc.body",
+          "heard=\"Close the rear window\""
+         ]
+        },
+        {
+         "time": "12:00:10.800",
+         "offset_s": 0.8,
+         "kind": "ERROR",
+         "name": "error",
+         "details": [
+          "Step execution failed: Interpret(\"Unavailable\")"
+         ]
+        },
+        {
+         "time": "12:00:12.060",
+         "offset_s": 2.06,
+         "kind": "STEP",
+         "name": "TtsPlaySyncStep",
+         "details": [
+          "text=\"The rear window is open\""
+         ]
+        },
+        {
+         "time": "12:00:12.200",
+         "offset_s": 2.2,
+         "kind": "END",
+         "name": "End",
+         "details": []
+        }
+       ]
+      },
+      "other_sections": {},
+      "raw_log": "==============================================================================\nVDC - Error  |  excel row 4  |  VCB - Body\n==============================================================================\nutterance    : Close the rear window\n\n--- stimulus sent to VUI ---\navailability : 80 00 00 00 00 00 00\napplied      : FUNC=80 0 0 0 0 0 0 | VRRES=010b operation unavailable notification | ErrID=2\nread-back    : FUNC=80 0 0 0 0 00 0 | VRRES=010b operation unavailable notification | ErrID=2   <-- MISMATCH, bench did not keep the values\n\n--- assertion ---\nexpected     : The rear window is closed\nactual       : The rear window is open\nverdict      : MISMATCH  (similarity 82.4%)  <-- conflicting terms: ['closed'] vs ['open']\nlatency      : 2060 ms\n\n--- telemetry errors ---\n Step execution failed: Interpret(\"Unavailable\")\n\n--- telemetry timeline (5 events) ---\n12:00:10.000 + 0.000s  STEP  AcquireSoundRightsStep\n                       Gets an arbitration token\n12:00:10.420 + 0.420s  PLAN  ResolverPlan\n                       Resolves the utterance to a VDC command.\n                       intent=Settings  subintent=settings.vdc.body\n                       heard=\"Close the rear window\"\n12:00:10.800 + 0.800s  ERROR error\n                       Step execution failed: Interpret(\"Unavailable\")\n12:00:12.060 + 2.060s  STEP  TtsPlaySyncStep\n                       text=\"The rear window is open\"\n12:00:12.200 + 2.200s  END   End",
+      "export": {
+       "file": "run_20261110_120000_full/logs/VDC-Error_0004_Close_rear_window.export.log",
+       "total": 2,
+       "truncated": false,
+       "events": [
+        {
+         "id": "sample-event-0003",
+         "received_at": 1794312010000,
+         "session_id": "sample-session-0002",
+         "type": "Step",
+         "name": "AcquireSoundRightsStep",
+         "description": "Gets an arbitration token",
+         "text": null
+        },
+        {
+         "id": "sample-event-0004",
+         "received_at": 1794312012060,
+         "session_id": "sample-session-0002",
+         "type": "Step",
+         "name": "TtsPlaySyncStep",
+         "description": null,
+         "text": "The rear window is open"
+        }
+       ]
+      },
+      "dlt": {
+       "file": "run_20261110_120000_batch_001/dlt/case_0004.json",
+       "total": 2,
+       "truncated": false,
+       "by_level": {
+        "Informational": 1,
+        "Error": 1
+       },
+       "messages": [
+        {
+         "index": 12011,
+         "app_id": "SYS",
+         "ctx_id": "JOUR",
+         "level": "Informational",
+         "text": "Received text input in resolver task: Close the rear window",
+         "payload": "2026/11/10 12:00:10.420:sample[1002]::Informational::{\"timestamp\":\"2026-11-10T12:00:10.420Z\",\"level\":\"INFO\",\"fields\":{\"message\":\"Received text input in resolver task: Close the rear window\"},\"target\":\"plan_core::resolver\"}"
+        },
+        {
+         "index": 12012,
+         "app_id": "SYS",
+         "ctx_id": "JOUR",
+         "level": "Error",
+         "text": "Interpret unavailable in synthetic example",
+         "payload": "2026/11/10 12:00:11.100:sample[1002]::Error::{\"timestamp\":\"2026-11-10T12:00:11.100Z\",\"level\":\"ERROR\",\"fields\":{\"message\":\"Interpret unavailable in synthetic example\"},\"target\":\"plan_core::resolver\"}"
+        }
+       ]
+      },
+      "key": "VDC - Error | row 4 | Close the rear window"
+     }
+    ]
+   },
+   "facts_sha256": "3b1fe7530a10046d1b5d5dbd3a4f60c4bc5cb7331cbacbe014794fb5e3b5bb29",
+   "computed": {
+    "metrics": {
+     "cases_total": 2,
+     "cases_selected": 2,
+     "cases_completed": 2,
+     "passed": 1,
+     "failed": 1,
+     "other": 0,
+     "pass_rate_pct": 50.0,
+     "verdict_counts": {
+      "CLOSE": 1,
+      "MISMATCH": 1
+     },
+     "latency_ms": {
+      "avg": 1940.0,
+      "min": 1820,
+      "max": 2060,
+      "n": 2
+     },
+     "similarity_pct": {
+      "avg": 86.8,
+      "min": 82.4,
+      "max": 91.3,
+      "n": 2
+     },
+     "cases_with_telemetry_errors": 1,
+     "cases_with_flags": 1,
+     "dlt_messages_by_level": {
+      "Informational": 3,
+      "Error": 1
+     },
+     "duration_s": 18.0
+    },
+    "case_outcomes": {
+     "20261110_120000/VDC-Error_0003_Open_passenger_window": "pass",
+     "20261110_120000/VDC-Error_0004_Close_rear_window": "fail"
+    },
+    "consistency": []
+   },
+   "sources": [
+    {
+     "path": "execution_20261110_120000.json",
+     "sha256": "abf7fe039f36a92fb9dae8b6a2d8d8a16af8da400d10b22906f55c5e6476e7fc",
+     "bytes": 398
+    },
+    {
+     "path": "run_20261110_120000_batch_001/dlt/case_0004.json",
+     "sha256": "d8aab2de9d2caa6d34a956126b6e97a251c807c6f60f7a4e31a37f18df135f16",
+     "bytes": 680
+    },
+    {
+     "path": "run_20261110_120000_batch_001/dlt/case_003.json",
+     "sha256": "9ab254fe208209a149608d83ba851e41247516b16d5ff68fa2d2c125744f6e0a",
+     "bytes": 698
+    },
+    {
+     "path": "run_20261110_120000_full/logs/VDC-Error_0003_Open_passenger_window.export.log",
+     "sha256": "d7fabf98b2321b812a7a8f78f70ff95b29c8869dcfd0e526515bbd9a71fb4448",
+     "bytes": 808
+    },
+    {
+     "path": "run_20261110_120000_full/logs/VDC-Error_0003_Open_passenger_window.log",
+     "sha256": "9a1aef56b0673fb3ba1bb9b33b09dbe15d4627a5b2ffbaba4ca06eae15f0eda8",
+     "bytes": 1286
+    },
+    {
+     "path": "run_20261110_120000_full/logs/VDC-Error_0004_Close_rear_window.export.log",
+     "sha256": "b421f0af9dc23a996b8d1f3512002e262d8cbc87335c5e52813c25fa43490541",
+     "bytes": 794
+    },
+    {
+     "path": "run_20261110_120000_full/logs/VDC-Error_0004_Close_rear_window.log",
+     "sha256": "892f1bdf27bd5922a79b8cb491584b421378b8a80f5291e823d8404f4e2c5e25",
+     "bytes": 1429
+    },
+    {
+     "path": "vui_baseline_20261110_120000.json",
+     "sha256": "18bcb6420847f6b587bcd901ad5f36c28a9c5c455a3ad2fbb4db09de92767de1",
+     "bytes": 139
+    }
+   ],
+   "parse_warnings": [],
+   "ai": {
+    "status": "error",
+    "error": "AnthropicError: No AWS region or base URL found. Set `aws_region` in the constructor, the `AWS_REGION` / `AWS_DEFAULT_REGION` environment variable, or provide a `base_url` / `ANTHROPIC_BEDROCK_MANTLE_BASE_URL` environment variable."
+   }
+  }
+ ],
+ "trend": {
+  "summary": {
+   "runs": 1,
+   "status": "single_run",
+   "note": "One run recorded. It is the baseline; comparisons start with the next run.",
+   "latest_stamp": "20261110_120000",
+   "previous_stamp": null,
+   "direction": null,
+   "pass_rate_change_pts": null,
+   "passed_change": null,
+   "failed_change": null,
+   "newly_failing": [],
+   "newly_passing": []
+  },
+  "points": [
+   {
+    "stamp": "20261110_120000",
+    "started": "2026-11-10T12:00:00",
+    "sheet": "VDC - Error",
+    "outcome": "completed",
+    "cases_total": 2,
+    "cases_selected": 2,
+    "cases_completed": 2,
+    "passed": 1,
+    "failed": 1,
+    "other": 0,
+    "pass_rate_pct": 50.0,
+    "verdict_counts": {
+     "CLOSE": 1,
+     "MISMATCH": 1
+    },
+    "avg_latency_ms": 1940.0,
+    "avg_similarity_pct": 86.8,
+    "cases_with_telemetry_errors": 1,
+    "cases_with_flags": 1,
+    "duration_s": 18.0
+   }
+  ],
+  "case_history": {
+   "VDC - Error | row 3 | Open the passenger window": [
+    {
+     "stamp": "20261110_120000",
+     "case_id": "20261110_120000/VDC-Error_0003_Open_passenger_window",
+     "verdict": "CLOSE",
+     "outcome": "pass",
+     "similarity_pct": 91.3,
+     "latency_ms": 1820
+    }
+   ],
+   "VDC - Error | row 4 | Close the rear window": [
+    {
+     "stamp": "20261110_120000",
+     "case_id": "20261110_120000/VDC-Error_0004_Close_rear_window",
+     "verdict": "MISMATCH",
+     "outcome": "fail",
+     "similarity_pct": 82.4,
+     "latency_ms": 2060
+    }
+   ]
+  },
+  "changes": [],
+  "flaky_cases": [],
+  "failing_streaks": {
+   "VDC - Error | row 4 | Close the rear window": 1
+  }
+ },
+ "ai_trend": {
+  "status": "skipped",
+  "reason": "a trend needs at least two runs"
+ },
+ "ai_analytics": {
+  "causes_by_run": [
+   {
+    "stamp": "20261110_120000",
+    "analysed": false,
+    "failed_cases": 1,
+    "failed_by_cause": {}
+   }
+  ],
+  "changes": {
+   "status": "skipped",
+   "reason": "no verdict changed between the latest runs",
+   "items": []
+  },
+  "flaky": {
+   "status": "skipped",
+   "reason": "no case flipped between pass and fail often enough to count as flaky",
+   "items": []
+  }
+ }
+}
